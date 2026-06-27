@@ -1,0 +1,84 @@
+<div class="lb-content tplink-page">
+<style>
+.tplink-page{max-width:1100px}
+.tplink-header{display:flex;align-items:center;gap:1rem;margin:0 0 1.1rem 0}
+.tplink-header-logo{width:128px;height:128px;flex:0 0 128px;object-fit:contain}
+.tplink-header-text h2{margin:.1rem 0 .35rem 0}
+.tplink-header-text p{margin:0;max-width:780px}
+.tplink-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tplink-actions a,.tplink-actions button{box-sizing:border-box}
+.tplink-card{padding:1rem;border:1px solid #ddd;border-radius:10px;margin:1rem 0;background:transparent}
+.tplink-row{display:grid;grid-template-columns:70px minmax(240px,1fr) minmax(145px,165px) minmax(72px,88px) minmax(168px,185px);gap:.6rem;margin:.45rem 0;align-items:center;width:100%;box-sizing:border-box}
+.tplink-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1rem}
+.tplink-panel{padding:1rem 0;border:0;background:transparent}
+.tplink-kv{display:grid;grid-template-columns:140px 1fr;gap:.3rem}
+.tplink-row input.lb-input{width:100%;box-sizing:border-box;min-width:0}
+.tplink-active{display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+.tplink-row .ui-btn{width:100%!important;max-width:100%!important;box-sizing:border-box!important;margin:0!important;overflow:hidden;text-overflow:ellipsis}
+.tplink-row .ui-btn-icon-left{padding-left:2.35em!important;padding-right:.7em!important}
+.tplink-row .hint{font-size:.92em}
+.switch-button.ui-btn{display:inline-flex!important;align-items:center!important;gap:.6rem!important;min-width:190px!important;padding:.48em .85em!important}
+.switch-ui{display:inline-block;width:44px;height:24px;border-radius:999px;background:#c82333;vertical-align:middle;position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,.28);flex:0 0 44px}
+.switch-ui:after{content:"";position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;top:2px;left:2px;box-shadow:0 1px 3px rgba(0,0,0,.35);transition:left .15s ease}
+.switch-button.is-on .switch-ui{background:#1f9d45}
+.switch-button.is-on .switch-ui:after{left:22px}
+.switch-button.is-off .switch-ui{background:#c82333}
+.switch-text{vertical-align:middle}
+
+@media(max-width:950px){
+  .tplink-row{grid-template-columns:70px minmax(220px,1fr) minmax(135px,155px) minmax(70px,82px) minmax(155px,170px);gap:.5rem}
+}
+
+@media(max-width:850px){
+  .tplink-row{grid-template-columns:1fr}
+  .tplink-page{max-width:100%}
+  .tplink-row .ui-btn{width:auto!important}
+  .tplink-actions{flex-direction:column;align-items:stretch;margin:.7rem}
+  .tplink-actions a,.tplink-actions button{width:100%!important;align-self:stretch}
+  form>.tplink-card+button.ui-icon-check{display:block;box-sizing:border-box;width:calc(100% - 1.4rem)!important;margin:.7rem!important;min-width:0;white-space:normal;transform:none!important}
+  .tplink-header{flex-direction:column;align-items:center;justify-content:center;gap:.5rem;margin:.7rem .7rem 1rem .7rem;text-align:center}
+  .tplink-header-logo{width:128px;height:128px;flex:0 0 auto;margin:0 auto}
+  .tplink-header-text{width:100%}
+  .tplink-header-text h2{margin:.25rem 0 .35rem 0;text-align:center}
+  .tplink-header-text p{margin:0 auto;max-width:95%;text-align:center}
+}
+</style>
+
+<div class="tplink-header">
+  <img class="tplink-header-logo" src="/system/images/icons/tplink/icon.svg" alt="TP-Link Plug Control">
+  <div class="tplink-header-text">
+    <h2><TMPL_VAR COMMON.TITLE></h2>
+    <p><TMPL_VAR COMMON.TITLE_DESC></p>
+  </div>
+</div>
+<div class="tplink-actions">
+  <a style="width:190px;"  href="index.cgi?action=discover" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-transition="flow" class=""><TMPL_VAR COMMON.DISCOVERY></a>
+  <a style="width:230px;"  href="index.cgi?action=loxone_vo_xml" data-role="button" data-inline="true" data-icon="arrow-d" data-mini="true" data-transition="flow" class=""><TMPL_VAR COMMON.DOWNLOAD_VO_XML></a>
+  <a style="width:230px;"  href="index.cgi?action=loxone_vi_xml" data-role="button" data-inline="true" data-icon="arrow-d" data-mini="true" data-transition="flow" class=""><TMPL_VAR COMMON.DOWNLOAD_VI_XML></a>
+  <a style="width:140px;" id="btnshwlog" target="log" href="<TMPL_VAR LOGURL ESCAPE=HTML>" data-role="button" data-inline="true" data-icon="info" data-mini="true" data-transition="flow" class=""><TMPL_VAR COMMON.SHOW_LOG></a>
+</div>
+<form method="post" action="index.cgi">
+<input type="hidden" name="action" value="save">
+<div class="tplink-card">
+<h3><TMPL_VAR COMMON.DEVICES></h3>
+<TMPL_LOOP DEVICES>
+<div class="tplink-row">
+<label class="tplink-active"><input data-role="none" type="checkbox" name="enabled_idx" value="<TMPL_VAR IDX>" <TMPL_VAR ENABLED_CHECKED>> <span><TMPL_VAR COMMON.ACTIVE></span></label>
+<input data-role="none" class="lb-input" name="name" value="<TMPL_VAR NAME ESCAPE=HTML>">
+<input data-role="none" class="lb-input" name="ip" value="<TMPL_VAR IP ESCAPE=HTML>">
+<input data-role="none" class="lb-input" name="type" value="<TMPL_VAR TYPE ESCAPE=HTML>">
+<a  href="settings.cgi?ip=<TMPL_VAR IP ESCAPE=URL>&amp;name=<TMPL_VAR NAME ESCAPE=URL>" data-role="button" data-inline="true" data-icon="gear" data-mini="true" data-transition="flow" class=""><TMPL_VAR COMMON.SETTINGS></a>
+</div>
+</TMPL_LOOP>
+<div class="tplink-row">
+<label class="tplink-active"><input data-role="none" type="checkbox" name="enabled_idx" value="<TMPL_VAR NEW_IDX>" checked> <span><TMPL_VAR COMMON.ACTIVE></span></label>
+<input data-role="none" class="lb-input" name="name" placeholder="<TMPL_VAR COMMON.NAME>">
+<input data-role="none" class="lb-input" name="ip" placeholder="192.168.x.x">
+<input data-role="none" class="lb-input" name="type" value="auto">
+<span class="hint"><TMPL_VAR COMMON.AFTER_SAVE></span>
+</div>
+</div>
+<button style="width:130px;" type="submit" data-role="button" data-inline="true" data-icon="check" data-mini="true" data-transition="flow"><TMPL_VAR COMMON.SAVE></button>
+</form>
+<div class="tplink-card"><h3><TMPL_VAR COMMON.LOXONE_GUIDE_TITLE></h3><p><TMPL_VAR COMMON.LOXONE_GUIDE_TEXT></p><ol><li><TMPL_VAR COMMON.LOXONE_GUIDE_STEP1></li><li><TMPL_VAR COMMON.LOXONE_GUIDE_STEP2></li><li><TMPL_VAR COMMON.LOXONE_GUIDE_STEP3></li></ol></div>
+</div>
