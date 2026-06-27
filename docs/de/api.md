@@ -17,6 +17,7 @@
 
 ```text
 /admin/plugins/tplink/control.cgi?ip=<IP>&command=<COMMAND>
+/admin/plugins/tplink/control.cgi?device=<NAME>&command=<COMMAND>
 ```
 
 ## Kommandos
