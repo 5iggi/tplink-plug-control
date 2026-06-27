@@ -3,7 +3,12 @@
 </p>
 
 <h1 align="center">TP-Link Plug Control for LoxBerry</h1>
-
+<p align="center">
+  <a href="https://github.com/5iggi/tplink-plug-control"><img alt="GitHub Repository" src="https://img.shields.io/badge/GitHub-tplink--plug--control-blue?logo=github"></a>
+  <img alt="Platform" src="https://img.shields.io/badge/platform-LoxBerry-green">
+  <img alt="Smart Plugs" src="https://img.shields.io/badge/devices-HS100%20%7C%20HS110%20%7C%20KP115-lightgrey">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+</p>
 <p align="center">
   <a href="docs/index.md">Dokumentation / Documentation</a> ·
   <a href="docs/de/README.md">Deutsch</a> ·
