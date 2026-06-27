@@ -10,9 +10,9 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
 </p>
 <p align="center">
-  <a href="../README.md">Repository README</a> ·
-  <a href="de/README.md">Deutsch</a> ·
-  <a href="en/README.md">English</a>
+  <a href="de/README.md"><img alt="Deutsch" src="https://img.shields.io/badge/Docs-DE-1f6feb?style=for-the-badge"></a>
+  <a href="en/README.md"><img alt="English" src="https://img.shields.io/badge/Docs-EN-2ea043?style=for-the-badge"></a>
+  <a href="../README.md"><img alt="Hub" src="https://img.shields.io/badge/README-Hub-f59e0b?style=for-the-badge&logo=github"></a>
 </p>
 
 ---
