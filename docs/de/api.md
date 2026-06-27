@@ -42,6 +42,7 @@ energy
 /admin/plugins/tplink/control.cgi?ip=192.168.222.217&command=on
 /admin/plugins/tplink/control.cgi?ip=192.168.222.217&command=off
 /admin/plugins/tplink/control.cgi?ip=192.168.222.217&command=info
+/admin/plugins/tplink/control.cgi?device=kaffeemaschine&command=state
 ```
 
 ## Status JSON
